@@ -8,8 +8,11 @@
 import Cocoa
 
 class ViewController: NSViewController, NSTextFieldDelegate {
-//    let fileSearch = FileSearch()
+    
+    let fileSearch = FileSearch()
+    
     @IBOutlet weak var paletteTextField: NSTextField!
+    @IBOutlet weak var resultsTable: NSTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +21,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField, self.paletteTextField.identifier == textField.identifier {
-//            fileSearch.updateQueryString(to: textField.stringValue)
+            fileSearch.updateQueryString(to: textField.stringValue)
         }
     }
     

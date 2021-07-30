@@ -9,7 +9,7 @@
 import XCTest
 
 /**
- Couldn't write tests because spotlight does not index the temporary files before they are queried in the tests. FileSearch currently does not support live updates, either.
+ Couldn't write tests because spotlight does not index the temporary test files before they are queried in the tests. FileSearch currently does not support live updates, either.
  */
 class FileSearchTests: XCTestCase {
     var fileSearch: FileSearch?

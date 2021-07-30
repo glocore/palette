@@ -9,10 +9,34 @@ import Foundation
 
 let defaultSearchScopes = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
+
+@propertyWrapper struct FilterIgnoredPaths {
+    private var storage: [NSMetadataItem]
+    private let ignoredPaths = ["node_modules"]
+    
+    init(wrappedValue: [NSMetadataItem]) {
+        storage = wrappedValue
+    }
+    
+    var wrappedValue: [NSMetadataItem] {
+        get {
+            return storage.filter { item in
+                guard let path = item.value(forAttribute: NSMetadataItemPathKey) as? String else { return false }
+                
+                // check if the file path contains any one of the ignored path keywords
+                return !ignoredPaths.contains(where: path.contains)
+            }
+        }
+        set {
+            storage = newValue
+        }
+    }
+}
+
 class FileSearch {
     private let searchScopes: [URL]
     private let metadataQuery: NSMetadataQuery
-    var results = [NSMetadataItem]()
+    @FilterIgnoredPaths var results = [NSMetadataItem]()
     
     init(searchScopes: [URL] = defaultSearchScopes) {
         self.searchScopes = searchScopes
@@ -53,9 +77,11 @@ class FileSearch {
     @objc private func handleMetadataQueryDidFinishGatheringNotification() {
         metadataQuery.disableUpdates()
         let queryResults: [NSMetadataItem] = metadataQuery.results as? [NSMetadataItem] ?? [NSMetadataItem]()
-        print("finishGatheringNotification: \(metadataQuery.resultCount) results")
+        print("before filtering: \(metadataQuery.resultCount) results")
         
         results = queryResults
+        
+        print("after filtering: \(results.count) results")
     }
     
     @objc private func handleMetadataQueryDidUpdateNotification() {
