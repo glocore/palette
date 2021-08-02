@@ -7,84 +7,79 @@
 
 import Foundation
 
-let defaultSearchScopes = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-
-@propertyWrapper struct FilterIgnoredPaths {
-    private var storage: [NSMetadataItem]
-    private let ignoredPaths = ["node_modules"]
+let defaultSearchScopes = [
+    "/System/Library/PreferencePanes"
     
-    init(wrappedValue: [NSMetadataItem]) {
-        storage = wrappedValue
-    }
+]
+
+class LocalFileSearchResult: NSObject {
+    @objc dynamic var displayName: String?
+    @objc dynamic var path: String?
     
-    var wrappedValue: [NSMetadataItem] {
-        get {
-            return storage.filter { item in
-                guard let path = item.value(forAttribute: NSMetadataItemPathKey) as? String else { return false }
-                
-                // check if the file path contains any one of the ignored path keywords
-                return !ignoredPaths.contains(where: path.contains)
-            }
-        }
-        set {
-            storage = newValue
-        }
+    init(displayName: String?, path: String?) {
+        self.displayName = displayName
+        self.path = path
     }
 }
 
-class FileSearch {
-    private let searchScopes: [URL]
-    private let metadataQuery: NSMetadataQuery
-    @FilterIgnoredPaths var results = [NSMetadataItem]()
+class LocalFileSearch {
+    typealias OnResultsUpdate = ([LocalFileSearchResult]) -> Void
     
-    init(searchScopes: [URL] = defaultSearchScopes) {
-        self.searchScopes = searchScopes
-        metadataQuery = NSMetadataQuery()
-        prepareMetadataQuery()
-        addNotificationObservers()
+    var mdQuery: MDQuery?
+    var onResultsUpdate: OnResultsUpdate
+    
+    init(onResultsUpdate: @escaping OnResultsUpdate) {
+        self.onResultsUpdate = onResultsUpdate
+        
+        print(NSString("~").expandingTildeInPath)
     }
     
     deinit {
-        metadataQuery.stop()
+        if(mdQuery != nil) {
+            MDQueryStop(mdQuery)
+        }
+
+        mdQuery = nil
     }
     
     func updateQueryString(to queryString: String) {
-        guard queryString.count > 0 else { return }
+        let queryStringSanitised = QuerySanitiser().sanitise(queryString)
+        guard queryStringSanitised.count > 0 else { return }
         
-        metadataQuery.stop()
-        metadataQuery.predicate = NSPredicate(format: "%K CONTAINS[cd] %@", argumentArray: [NSMetadataItemFSNameKey, queryString])
-        metadataQuery.enableUpdates()
-        metadataQuery.start()
-    }
-    
-    private func prepareMetadataQuery() {
-        metadataQuery.searchScopes = searchScopes
-        metadataQuery.predicate = NSPredicate(format: "%K LIKE '*'", argumentArray: [NSMetadataItemFSNameKey])
-        metadataQuery.start()
-    }
-    
-    private func addNotificationObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleMetadataQueryDidStartGatheringNotification), name: NSNotification.Name.NSMetadataQueryDidStartGathering, object: metadataQuery)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleMetadataQueryDidFinishGatheringNotification), name: NSNotification.Name.NSMetadataQueryDidFinishGathering, object: metadataQuery)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleMetadataQueryDidUpdateNotification), name: NSNotification.Name.NSMetadataQueryDidUpdate, object: metadataQuery)
-    }
-    
-    @objc private func handleMetadataQueryDidStartGatheringNotification() {
-        print("startGatheringNotification")
-    }
-    
-    @objc private func handleMetadataQueryDidFinishGatheringNotification() {
-        metadataQuery.disableUpdates()
-        let queryResults: [NSMetadataItem] = metadataQuery.results as? [NSMetadataItem] ?? [NSMetadataItem]()
-        print("before filtering: \(metadataQuery.resultCount) results")
+        if(mdQuery != nil) {
+            MDQueryStop(mdQuery)
+        }
         
-        results = queryResults
+        mdQuery = MDQueryCreate(kCFAllocatorDefault, "kMDItemDisplayName == \"*\(queryString)*\"cd" as CFString, nil, nil)
+        MDQuerySetSearchScope(mdQuery, defaultSearchScopes as CFArray, 0)
+        MDQuerySetMaxCount(mdQuery, 50)
+        MDQueryExecute(mdQuery, CFOptionFlags(kMDQuerySynchronous.rawValue))
         
-        print("after filtering: \(results.count) results")
-    }
-    
-    @objc private func handleMetadataQueryDidUpdateNotification() {
-        // ignore notification
+        let count = MDQueryGetResultCount(mdQuery);
+        print("count: \(count)")
+        
+        var results = [LocalFileSearchResult]()
+        
+        /* Reference: https://gist.github.com/dagronf/3d03094a7ee79c1f91607f4c365fba91 */
+        
+        for i in 0 ..< count {
+            let rawPtr = MDQueryGetResultAtIndex(mdQuery, i)
+            let item = Unmanaged<MDItem>.fromOpaque(rawPtr!).takeUnretainedValue()
+            
+            
+            let result = LocalFileSearchResult(displayName: nil, path: nil)
+            
+            if let displayName = MDItemCopyAttribute(item, kMDItemDisplayName) as? String {
+                result.displayName = displayName
+            }
+            
+            if let path = MDItemCopyAttribute(item, kMDItemPath) as? String {
+                result.path = path
+            }
+            
+            results.append(result)
+        }
+        
+        onResultsUpdate(results)
     }
 }
