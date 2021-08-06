@@ -16,7 +16,8 @@ class FileSearchResult: NSObject {
 }
 
 class ViewController: NSViewController, NSTextFieldDelegate {
-    var localFileSearch: LocalFileSearch!
+//    var localFileSearch: LocalFileSearch!
+    var mdqSearch: MDQSearch?
     @objc dynamic var fileSearchResults = [String]()
     
     @IBOutlet var fileResultsArrayController: NSArrayController!
@@ -26,13 +27,26 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         paletteTextField.delegate = self
-        localFileSearch = LocalFileSearch(onResultsUpdate: self.resultsUpdateHandler)
+//        localFileSearch = LocalFileSearch(onResultsUpdate: self.resultsUpdateHandler)
+        mdqSearch = MDQSearch(onResultsUpdate: self.resultsUpdateHandler)
     }
     
     func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField, self.paletteTextField.identifier == textField.identifier {
-            localFileSearch.updateQueryString(to: textField.stringValue)
+//            localFileSearch.updateQueryString(to: textField.stringValue)
+            mdqSearch?.updateQuery(to: textField.stringValue)
         }
+        
+        
+    }
+    
+    @IBAction func onDisableClick(_ sender: Any) {
+        mdqSearch = nil
+    }
+    
+    
+    @IBAction func onEnableClick(_ sender: Any) {
+        mdqSearch = MDQSearch(onResultsUpdate: self.resultsUpdateHandler)
     }
     
     override var representedObject: Any? {
