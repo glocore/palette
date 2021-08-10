@@ -13,6 +13,8 @@
 		CF6DD33D26B0684200721F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6DD33B26B0684200721F2A /* Main.storyboard */; };
 		CF6DD34926B0684200721F2A /* PaletteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DD34826B0684200721F2A /* PaletteTests.swift */; };
 		CF6DD35426B0684200721F2A /* PaletteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DD35326B0684200721F2A /* PaletteUITests.swift */; };
+		CF8306FE26C0373100E5A8A5 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8306FD26C0373100E5A8A5 /* WindowController.swift */; };
+		CF83070026C0FBAB00E5A8A5 /* MainPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */; };
 		CFCD713C26B1A4BC0014851C /* FileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD713B26B1A4BC0014851C /* FileSearch.swift */; };
 		CFCD713E26B2D2300014851C /* FileSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD713D26B2D2300014851C /* FileSearchTests.swift */; };
 		CFCEC24326B458030009F5ED /* QuerySanitiserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCEC24226B458030009F5ED /* QuerySanitiserTests.swift */; };
@@ -50,6 +52,8 @@
 		CF6DD34F26B0684200721F2A /* PaletteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaletteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6DD35326B0684200721F2A /* PaletteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteUITests.swift; sourceTree = "<group>"; };
 		CF6DD35526B0684200721F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF8306FD26C0373100E5A8A5 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanel.swift; sourceTree = "<group>"; };
 		CFCD713B26B1A4BC0014851C /* FileSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSearch.swift; sourceTree = "<group>"; };
 		CFCD713D26B2D2300014851C /* FileSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSearchTests.swift; sourceTree = "<group>"; };
 		CFCEC24226B458030009F5ED /* QuerySanitiserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySanitiserTests.swift; sourceTree = "<group>"; };
@@ -106,12 +110,14 @@
 			children = (
 				CF6DD33526B0684000721F2A /* AppDelegate.swift */,
 				CF6DD33726B0684000721F2A /* ViewController.swift */,
+				CF8306FD26C0373100E5A8A5 /* WindowController.swift */,
 				CF6DD33926B0684200721F2A /* Assets.xcassets */,
 				CF6DD33B26B0684200721F2A /* Main.storyboard */,
 				CF6DD33E26B0684200721F2A /* Info.plist */,
 				CF6DD33F26B0684200721F2A /* Palette.entitlements */,
 				CFCD713B26B1A4BC0014851C /* FileSearch.swift */,
 				CFCEC24426B458150009F5ED /* QuerySanitiser.swift */,
+				CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */,
 			);
 			path = Palette;
 			sourceTree = "<group>";
@@ -266,9 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFCD713C26B1A4BC0014851C /* FileSearch.swift in Sources */,
+				CF8306FE26C0373100E5A8A5 /* WindowController.swift in Sources */,
 				CF6DD33826B0684000721F2A /* ViewController.swift in Sources */,
 				CF6DD33626B0684000721F2A /* AppDelegate.swift in Sources */,
 				CFCEC24526B458150009F5ED /* QuerySanitiser.swift in Sources */,
+				CF83070026C0FBAB00E5A8A5 /* MainPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

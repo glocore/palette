@@ -23,9 +23,14 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet var fileResultsArrayController: NSArrayController!
     @IBOutlet weak var paletteTextField: NSTextField!
     @IBOutlet weak var resultsTable: NSTableView!
+    @IBOutlet var visualEffectView: NSVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = false
+        visualEffectView.state = .active
+        visualEffectView.wantsLayer = true
+        visualEffectView.layer?.cornerRadius = 16.0
         paletteTextField.delegate = self
 //        localFileSearch = LocalFileSearch(onResultsUpdate: self.resultsUpdateHandler)
         mdqSearch = MDQSearch(onResultsUpdate: self.resultsUpdateHandler)
