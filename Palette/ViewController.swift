@@ -67,5 +67,15 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         
         resultsTable?.reloadData()
     }
+    
+    static func newInsatnce() -> ViewController {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let identifier = NSStoryboard.SceneIdentifier("MainViewController")
+          
+        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? ViewController else {
+            fatalError("Unable to instantiate ViewController in Main.storyboard")
+        }
+        return viewcontroller
+    }
 }
 
