@@ -9,7 +9,10 @@ import Cocoa
 
 class MainPanelController: NSWindowController {
     convenience init() {
-        // Reference: https://github.com/lucasderraugh/AppleProg-Cocoa-Tutorials/blob/master/Lesson%2069/Lesson%2069/CodeWindowController.swift
+        // A window nib name needs to be passed to the initialiser for the window controller to call the loadWindow method below. Doing this ensures that the windowDidLoad method is called only when showWindow() is called at the call-site.
+        // References:
+        // https://youtu.be/vcyA4vTwZcQ?t=879
+        // https://github.com/lucasderraugh/AppleProg-Cocoa-Tutorials/blob/master/Lesson%2069/Lesson%2069/CodeWindowController.swift
         self.init(windowNibName: "")
     }
     

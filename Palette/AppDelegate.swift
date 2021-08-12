@@ -6,15 +6,22 @@
 //
 
 import Cocoa
+import KeyboardShortcuts
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var mainPanel: MainPanel?
     lazy var mainPanelController = MainPanelController()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.showMainPanel()
         
+        KeyboardShortcuts.onKeyUp(for: .toggleMainPanelVisibility) {
+            if(self.mainPanelController.window?.isVisible == true) {
+                self.mainPanelController.window?.close()
+            } else {
+                self.mainPanelController.window?.makeKeyAndOrderFront(nil)
+            }
+        }
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -22,8 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showMainPanel() {
-        mainPanelController.window?.makeKeyAndOrderFront(nil)
-        mainPanelController.window?.orderFrontRegardless()
         mainPanelController.showWindow(nil)
     }
 }

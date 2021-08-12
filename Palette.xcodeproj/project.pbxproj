@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		CF6DD34926B0684200721F2A /* PaletteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DD34826B0684200721F2A /* PaletteTests.swift */; };
 		CF6DD35426B0684200721F2A /* PaletteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DD35326B0684200721F2A /* PaletteUITests.swift */; };
 		CF6F366D26C3EA9A00FFE283 /* MainPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F366C26C3EA9A00FFE283 /* MainPanelController.swift */; };
+		CF6F367026C523C300FFE283 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = CF6F366F26C523C300FFE283 /* KeyboardShortcuts */; };
+		CF6F367226C5240700FFE283 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F367126C5240700FFE283 /* Constants.swift */; };
 		CF8306FE26C0373100E5A8A5 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8306FD26C0373100E5A8A5 /* WindowController.swift */; };
 		CF83070026C0FBAB00E5A8A5 /* MainPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */; };
 		CFCD713C26B1A4BC0014851C /* FileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD713B26B1A4BC0014851C /* FileSearch.swift */; };
@@ -54,6 +56,7 @@
 		CF6DD35326B0684200721F2A /* PaletteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteUITests.swift; sourceTree = "<group>"; };
 		CF6DD35526B0684200721F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6F366C26C3EA9A00FFE283 /* MainPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanelController.swift; sourceTree = "<group>"; };
+		CF6F367126C5240700FFE283 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CF8306FD26C0373100E5A8A5 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanel.swift; sourceTree = "<group>"; };
 		CFCD713B26B1A4BC0014851C /* FileSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSearch.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6F367026C523C300FFE283 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +125,7 @@
 				CFCEC24426B458150009F5ED /* QuerySanitiser.swift */,
 				CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */,
 				CF6F366C26C3EA9A00FFE283 /* MainPanelController.swift */,
+				CF6F367126C5240700FFE283 /* Constants.swift */,
 			);
 			path = Palette;
 			sourceTree = "<group>";
@@ -161,6 +166,9 @@
 			dependencies = (
 			);
 			name = Palette;
+			packageProductDependencies = (
+				CF6F366F26C523C300FFE283 /* KeyboardShortcuts */,
+			);
 			productName = Palette;
 			productReference = CF6DD33226B0684000721F2A /* Palette.app */;
 			productType = "com.apple.product-type.application";
@@ -232,6 +240,9 @@
 				Base,
 			);
 			mainGroup = CF6DD32926B0684000721F2A;
+			packageReferences = (
+				CF6F366E26C523C300FFE283 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
 			productRefGroup = CF6DD33326B0684000721F2A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -281,6 +292,7 @@
 				CF6DD33626B0684000721F2A /* AppDelegate.swift in Sources */,
 				CFCEC24526B458150009F5ED /* QuerySanitiser.swift in Sources */,
 				CF83070026C0FBAB00E5A8A5 /* MainPanel.swift in Sources */,
+				CF6F367226C5240700FFE283 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +614,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF6F366E26C523C300FFE283 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF6F366F26C523C300FFE283 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF6F366E26C523C300FFE283 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CF6DD32A26B0684000721F2A /* Project object */;
 }
