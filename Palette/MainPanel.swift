@@ -18,7 +18,7 @@ class MainPanel: NSPanel {
         self.titleVisibility = .hidden
         self.titlebarAppearsTransparent = true
         self.isFloatingPanel = true
-        
+//        self.hidesOnDeactivate = true
         // Allow the panel to appear in a fullscreen space
         self.collectionBehavior.insert(.fullScreenAuxiliary)
         self.collectionBehavior.insert(.canJoinAllSpaces)

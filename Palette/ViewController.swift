@@ -16,13 +16,13 @@ class FileSearchResult: NSObject {
 }
 
 class ViewController: NSViewController, NSTextFieldDelegate {
-//    var localFileSearch: LocalFileSearch!
     var mdqSearch: MDQSearch?
     @objc dynamic var fileSearchResults = [String]()
     
     @IBOutlet var fileResultsArrayController: NSArrayController!
     @IBOutlet weak var paletteTextField: NSTextField!
     @IBOutlet weak var resultsTable: NSTableView!
+    @IBOutlet weak var resultsScrollView: NSScrollView!
     @IBOutlet var visualEffectView: NSVisualEffectView!
     
     override func viewDidLoad() {
@@ -32,13 +32,19 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         visualEffectView.wantsLayer = true
         visualEffectView.layer?.cornerRadius = 16.0
         paletteTextField.delegate = self
-//        localFileSearch = LocalFileSearch(onResultsUpdate: self.resultsUpdateHandler)
         mdqSearch = MDQSearch(onResultsUpdate: self.resultsUpdateHandler)
+        paletteTextField.backgroundColor = .clear
+        paletteTextField.isBezeled = false
+        paletteTextField.drawsBackground = false
+        paletteTextField.layer?.cornerRadius = 10
+        
+        resultsTable.backgroundColor = .clear
+        resultsTable.enclosingScrollView?.backgroundColor = .clear
+        resultsTable.enclosingScrollView?.drawsBackground = false
     }
     
     func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField, self.paletteTextField.identifier == textField.identifier {
-//            localFileSearch.updateQueryString(to: textField.stringValue)
             mdqSearch?.updateQuery(to: textField.stringValue)
         }
         
@@ -66,16 +72,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         })
         
         resultsTable?.reloadData()
-    }
-    
-    static func newInsatnce() -> ViewController {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let identifier = NSStoryboard.SceneIdentifier("MainViewController")
-          
-        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? ViewController else {
-            fatalError("Unable to instantiate ViewController in Main.storyboard")
-        }
-        return viewcontroller
     }
 }
 

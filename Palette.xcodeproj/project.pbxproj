@@ -13,6 +13,7 @@
 		CF6DD33D26B0684200721F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6DD33B26B0684200721F2A /* Main.storyboard */; };
 		CF6DD34926B0684200721F2A /* PaletteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DD34826B0684200721F2A /* PaletteTests.swift */; };
 		CF6DD35426B0684200721F2A /* PaletteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DD35326B0684200721F2A /* PaletteUITests.swift */; };
+		CF6F366D26C3EA9A00FFE283 /* MainPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F366C26C3EA9A00FFE283 /* MainPanelController.swift */; };
 		CF8306FE26C0373100E5A8A5 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8306FD26C0373100E5A8A5 /* WindowController.swift */; };
 		CF83070026C0FBAB00E5A8A5 /* MainPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */; };
 		CFCD713C26B1A4BC0014851C /* FileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD713B26B1A4BC0014851C /* FileSearch.swift */; };
@@ -52,6 +53,7 @@
 		CF6DD34F26B0684200721F2A /* PaletteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaletteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6DD35326B0684200721F2A /* PaletteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteUITests.swift; sourceTree = "<group>"; };
 		CF6DD35526B0684200721F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF6F366C26C3EA9A00FFE283 /* MainPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanelController.swift; sourceTree = "<group>"; };
 		CF8306FD26C0373100E5A8A5 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanel.swift; sourceTree = "<group>"; };
 		CFCD713B26B1A4BC0014851C /* FileSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSearch.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				CFCD713B26B1A4BC0014851C /* FileSearch.swift */,
 				CFCEC24426B458150009F5ED /* QuerySanitiser.swift */,
 				CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */,
+				CF6F366C26C3EA9A00FFE283 /* MainPanelController.swift */,
 			);
 			path = Palette;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6F366D26C3EA9A00FFE283 /* MainPanelController.swift in Sources */,
 				CFCD713C26B1A4BC0014851C /* FileSearch.swift in Sources */,
 				CF8306FE26C0373100E5A8A5 /* WindowController.swift in Sources */,
 				CF6DD33826B0684000721F2A /* ViewController.swift in Sources */,
