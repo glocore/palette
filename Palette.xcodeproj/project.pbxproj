@@ -22,6 +22,10 @@
 		CFCD713E26B2D2300014851C /* FileSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD713D26B2D2300014851C /* FileSearchTests.swift */; };
 		CFCEC24326B458030009F5ED /* QuerySanitiserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCEC24226B458030009F5ED /* QuerySanitiserTests.swift */; };
 		CFCEC24526B458150009F5ED /* QuerySanitiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCEC24426B458150009F5ED /* QuerySanitiser.swift */; };
+		CFF9AB8E26D24E7C0070613A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9AB8C26D24E7C0070613A /* MainViewController.swift */; };
+		CFF9AB8F26D24E7C0070613A /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF9AB8D26D24E7C0070613A /* MainViewController.xib */; };
+		CFF9AB9526D2A8F40070613A /* RootSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9AB9326D2A8F40070613A /* RootSearchViewController.swift */; };
+		CFF9AB9626D2A8F40070613A /* RootSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF9AB9426D2A8F40070613A /* RootSearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		CFCD713D26B2D2300014851C /* FileSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSearchTests.swift; sourceTree = "<group>"; };
 		CFCEC24226B458030009F5ED /* QuerySanitiserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySanitiserTests.swift; sourceTree = "<group>"; };
 		CFCEC24426B458150009F5ED /* QuerySanitiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySanitiser.swift; sourceTree = "<group>"; };
+		CFF9AB8C26D24E7C0070613A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CFF9AB8D26D24E7C0070613A /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		CFF9AB9326D2A8F40070613A /* RootSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSearchViewController.swift; sourceTree = "<group>"; };
+		CFF9AB9426D2A8F40070613A /* RootSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootSearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 		CF6DD33426B0684000721F2A /* Palette */ = {
 			isa = PBXGroup;
 			children = (
+				CFF9AB9226D2A8BA0070613A /* RootSearch */,
 				CF6DD33526B0684000721F2A /* AppDelegate.swift */,
 				CF6DD33726B0684000721F2A /* ViewController.swift */,
 				CF8306FD26C0373100E5A8A5 /* WindowController.swift */,
@@ -125,6 +134,8 @@
 				CFCEC24426B458150009F5ED /* QuerySanitiser.swift */,
 				CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */,
 				CF6F366C26C3EA9A00FFE283 /* MainPanelController.swift */,
+				CFF9AB8C26D24E7C0070613A /* MainViewController.swift */,
+				CFF9AB8D26D24E7C0070613A /* MainViewController.xib */,
 				CF6F367126C5240700FFE283 /* Constants.swift */,
 			);
 			path = Palette;
@@ -148,6 +159,15 @@
 				CF6DD35526B0684200721F2A /* Info.plist */,
 			);
 			path = PaletteUITests;
+			sourceTree = "<group>";
+		};
+		CFF9AB9226D2A8BA0070613A /* RootSearch */ = {
+			isa = PBXGroup;
+			children = (
+				CFF9AB9326D2A8F40070613A /* RootSearchViewController.swift */,
+				CFF9AB9426D2A8F40070613A /* RootSearchViewController.xib */,
+			);
+			path = RootSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +279,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF9AB9626D2A8F40070613A /* RootSearchViewController.xib in Resources */,
+				CFF9AB8F26D24E7C0070613A /* MainViewController.xib in Resources */,
 				CF6DD33A26B0684200721F2A /* Assets.xcassets in Resources */,
 				CF6DD33D26B0684200721F2A /* Main.storyboard in Resources */,
 			);
@@ -288,10 +310,12 @@
 				CF6F366D26C3EA9A00FFE283 /* MainPanelController.swift in Sources */,
 				CFCD713C26B1A4BC0014851C /* FileSearch.swift in Sources */,
 				CF8306FE26C0373100E5A8A5 /* WindowController.swift in Sources */,
+				CFF9AB8E26D24E7C0070613A /* MainViewController.swift in Sources */,
 				CF6DD33826B0684000721F2A /* ViewController.swift in Sources */,
 				CF6DD33626B0684000721F2A /* AppDelegate.swift in Sources */,
 				CFCEC24526B458150009F5ED /* QuerySanitiser.swift in Sources */,
 				CF83070026C0FBAB00E5A8A5 /* MainPanel.swift in Sources */,
+				CFF9AB9526D2A8F40070613A /* RootSearchViewController.swift in Sources */,
 				CF6F367226C5240700FFE283 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

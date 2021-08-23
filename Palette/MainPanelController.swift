@@ -23,8 +23,10 @@ class MainPanelController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
     
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"),bundle: nil)
-        contentViewController = storyboard.instantiateController(withIdentifier: "MainViewController") as? NSViewController
+//        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"),bundle: nil)
+//        contentViewController = storyboard.instantiateController(withIdentifier: "MainViewController") as? NSViewController
+        
+        contentViewController = MainViewController()
     }
 
 }
