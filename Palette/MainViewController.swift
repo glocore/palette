@@ -11,14 +11,14 @@ class MainViewController: NSViewController {
     @IBOutlet weak var sceneView: NSView!
     @IBOutlet weak var commandTextField: NSTextField!
     
-    private var sceneViewController: NSViewController?
+    private var sceneViewController: SceneViewController?
     private var sceneName: SceneName!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setMainTextFieldStyling()
         commandTextField.delegate = self
-        replaceCurrentScene(with: .rootSearch)
+        replaceCurrentScene(with: .widgets)
     }
     
     private func setMainTextFieldStyling() {
@@ -31,11 +31,22 @@ class MainViewController: NSViewController {
 
 extension MainViewController: NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
-        print(commandTextField.stringValue)
+        if(commandTextField.stringValue.count == 0) {
+            replaceCurrentScene(with: .widgets)
+            return
+        }
+        
+        /// TODO: scene view selection logic
+        if(sceneName != .rootSearch) {
+            replaceCurrentScene(with: .rootSearch)
+        }
+        
+        sceneViewController?.queryDidUpdate(to: commandTextField.stringValue)
     }
 }
 
 enum SceneName {
+    case widgets
     case rootSearch
 }
 
@@ -45,12 +56,18 @@ extension MainViewController {
         sceneViewController?.view.removeFromSuperview()
         
         switch newSceneName {
+        case .widgets:
+            sceneName = .widgets
+            sceneViewController = WidgetsViewController(nibName: "WidgetsViewController", bundle: nil)
+            break
         case .rootSearch:
             sceneName = .rootSearch
-            sceneViewController = RootSearchViewController.init(nibName: "RootSearchViewController", bundle: nil)
+            sceneViewController = RootSearchViewController(nibName: "RootSearchViewController", bundle: nil)
             break
         }
         
         sceneView.addSubview(sceneViewController!.view)
+        let sceneSize = sceneView.frame
+        sceneViewController!.view.frame = CGRect(x: 0, y: 0, width: sceneSize.width, height: sceneSize.height)
     }
 }

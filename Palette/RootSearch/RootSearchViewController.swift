@@ -8,10 +8,26 @@
 import Cocoa
 
 class RootSearchViewController: NSViewController {
-
+    
+    let localAppSearch = LocalAppSearch()
+    @objc dynamic var results = [ResultItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        localAppSearch.localAppSearchDelegate = self
     }
+}
+
+extension RootSearchViewController: SceneViewController {
     
+    func queryDidUpdate(to newQueryString: String) {
+        localAppSearch.updateQuery(to: newQueryString)
+    }
+}
+
+extension RootSearchViewController: LocalAppSearchDelegate {
+    
+    func localAppResultsDidUpdate(_ newResults: [ResultItem]) {
+        results = newResults
+    }
 }

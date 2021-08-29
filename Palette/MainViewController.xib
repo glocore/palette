@@ -8,42 +8,49 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="Palette" customModuleProvider="target">
             <connections>
                 <outlet property="commandTextField" destination="ABD-x0-t4Q" id="SWw-Ue-Ptc"/>
-                <outlet property="sceneView" destination="S9f-4X-XB0" id="vlM-Sl-uyv"/>
+                <outlet property="sceneView" destination="QrP-WV-MiC" id="U9q-OD-WZG"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="753" height="476"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <visualEffectView ambiguous="YES" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="9xr-B2-zJW">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="9xr-B2-zJW">
+                    <rect key="frame" x="0.0" y="0.0" width="753" height="476"/>
                     <subviews>
-                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9f-4X-XB0">
-                            <rect key="frame" x="0.0" y="0.0" width="480" height="228"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </customView>
                         <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABD-x0-t4Q">
-                            <rect key="frame" x="10" y="231" width="460" height="33"/>
+                            <rect key="frame" x="8" y="435" width="737" height="33"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" placeholderString="Search for apps and commands" drawsBackground="YES" usesSingleLineMode="YES" id="0Xl-RD-EEH">
                                 <font key="font" metaFont="systemLight" size="24"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="QrP-WV-MiC">
+                            <rect key="frame" x="0.0" y="0.0" width="753" height="424"/>
+                        </customView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="272" id="6dk-re-83u"/>
-                        <constraint firstAttribute="width" constant="480" id="AoR-e5-E1H"/>
-                        <constraint firstItem="ABD-x0-t4Q" firstAttribute="top" secondItem="9xr-B2-zJW" secondAttribute="top" constant="8" id="CN2-B0-uzd"/>
-                        <constraint firstAttribute="trailing" secondItem="ABD-x0-t4Q" secondAttribute="trailing" constant="10" id="Xuo-ok-gIp"/>
-                        <constraint firstItem="ABD-x0-t4Q" firstAttribute="leading" secondItem="9xr-B2-zJW" secondAttribute="leading" constant="10" id="xf6-In-vIO"/>
+                        <constraint firstAttribute="bottom" secondItem="QrP-WV-MiC" secondAttribute="bottom" id="9DE-Ln-cXu"/>
+                        <constraint firstItem="QrP-WV-MiC" firstAttribute="centerX" secondItem="ABD-x0-t4Q" secondAttribute="centerX" id="Hk4-zq-MYx"/>
+                        <constraint firstItem="QrP-WV-MiC" firstAttribute="leading" secondItem="9xr-B2-zJW" secondAttribute="leading" id="MWd-am-Hwb"/>
+                        <constraint firstAttribute="trailing" secondItem="ABD-x0-t4Q" secondAttribute="trailing" constant="8" id="Ogm-ya-XGC"/>
+                        <constraint firstItem="ABD-x0-t4Q" firstAttribute="top" secondItem="9xr-B2-zJW" secondAttribute="top" constant="8" id="VyX-Ug-BSO"/>
+                        <constraint firstItem="ABD-x0-t4Q" firstAttribute="leading" secondItem="9xr-B2-zJW" secondAttribute="leading" constant="8" id="bvH-GJ-ypw"/>
+                        <constraint firstItem="QrP-WV-MiC" firstAttribute="top" secondItem="ABD-x0-t4Q" secondAttribute="bottom" constant="11" id="vqe-W6-xF4"/>
                     </constraints>
                 </visualEffectView>
             </subviews>
-            <point key="canvasLocation" x="101" y="114"/>
+            <constraints>
+                <constraint firstItem="9xr-B2-zJW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="dDW-Wd-JAA"/>
+                <constraint firstItem="9xr-B2-zJW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="gfZ-SI-wCE"/>
+                <constraint firstAttribute="bottom" secondItem="9xr-B2-zJW" secondAttribute="bottom" id="wgJ-ti-9kS"/>
+                <constraint firstAttribute="trailing" secondItem="9xr-B2-zJW" secondAttribute="trailing" id="xV4-DX-sWE"/>
+            </constraints>
+            <point key="canvasLocation" x="100.5" y="114"/>
         </customView>
     </objects>
 </document>
