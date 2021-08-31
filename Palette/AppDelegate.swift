@@ -8,7 +8,6 @@
 import Cocoa
 import KeyboardShortcuts
 
-@main
 class AppDelegate: NSObject, NSApplicationDelegate {
     lazy var mainPanelController = MainPanelController()
     
