@@ -29,7 +29,7 @@ class MainViewController: NSViewController {
     }
 }
 
-extension MainViewController: NSTextFieldDelegate {
+extension MainViewController: NSTextFieldDelegate, NSControlTextEditingDelegate {
     func controlTextDidChange(_ obj: Notification) {
         if(commandTextField.stringValue.count == 0) {
             replaceCurrentScene(with: .widgets)
@@ -37,17 +37,35 @@ extension MainViewController: NSTextFieldDelegate {
         }
         
         /// TODO: scene view selection logic
-        if(sceneName != .rootSearch) {
-            replaceCurrentScene(with: .rootSearch)
+        if(sceneName != .googleDriveSearch) {
+            replaceCurrentScene(with: .googleDriveSearch)
         }
         
-        sceneViewController?.queryDidUpdate(to: commandTextField.stringValue)
+        let sanitisedQuery = QuerySanitiser().sanitise(commandTextField.stringValue)
+        
+        sceneViewController?.queryDidUpdate(to: sanitisedQuery)
+    }
+    
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(moveUp) {
+            sceneViewController?.focusPreviousItem()
+            print("up")
+            return true
+        } else if commandSelector == #selector(moveDown) {
+            sceneViewController?.focusNextItem()
+            print("down")
+            return true
+        } else if commandSelector == #selector(insertNewline) {
+            return true
+        }
+        return false
     }
 }
 
 enum SceneName {
     case widgets
     case rootSearch
+    case googleDriveSearch
 }
 
 extension MainViewController {
@@ -64,7 +82,12 @@ extension MainViewController {
             sceneName = .rootSearch
             sceneViewController = RootSearchViewController(nibName: "RootSearchViewController", bundle: nil)
             break
+        case .googleDriveSearch:
+            sceneName = .googleDriveSearch
+            sceneViewController = GoogleDriveSearchViewController(nibName: "GoogleDriveSearchViewController", bundle: nil)
+            break
         }
+        
         
         sceneView.addSubview(sceneViewController!.view)
         let sceneSize = sceneView.frame

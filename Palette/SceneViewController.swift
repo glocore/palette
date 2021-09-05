@@ -9,4 +9,6 @@ import Cocoa
 
 protocol SceneViewController: NSViewController {
     func queryDidUpdate(to newQueryString: String) -> Void
+    func focusNextItem() -> Void
+    func focusPreviousItem() -> Void
 }

@@ -17,5 +17,9 @@ class WidgetsViewController: NSViewController {
 }
 
 extension WidgetsViewController: SceneViewController {
+    func focusNextItem() {}
+    
+    func focusPreviousItem() {}
+    
     func queryDidUpdate(to newQueryString: String) {}
 }

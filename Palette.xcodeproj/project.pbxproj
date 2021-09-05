@@ -25,6 +25,11 @@
 		CFF44F6526DA94A4000AF18C /* WidgetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF44F6326DA94A4000AF18C /* WidgetsViewController.swift */; };
 		CFF44F6626DA94A4000AF18C /* WidgetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF44F6426DA94A4000AF18C /* WidgetsViewController.xib */; };
 		CFF44F6826DE4F76000AF18C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF44F6726DE4F76000AF18C /* main.swift */; };
+		CFF44F6B26DE780E000AF18C /* GoogleDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF44F6A26DE780E000AF18C /* GoogleDriveService.swift */; };
+		CFF44F6E26DE79B5000AF18C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = CFF44F6D26DE79B5000AF18C /* Moya */; };
+		CFF44F7126DE8924000AF18C /* GoogleDriveSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF44F6F26DE8924000AF18C /* GoogleDriveSearchViewController.swift */; };
+		CFF44F7226DE8924000AF18C /* GoogleDriveSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF44F7026DE8924000AF18C /* GoogleDriveSearchViewController.xib */; };
+		CFF44F7426DE898B000AF18C /* GoogleDriveSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF44F7326DE898B000AF18C /* GoogleDriveSearch.swift */; };
 		CFF9AB8E26D24E7C0070613A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9AB8C26D24E7C0070613A /* MainViewController.swift */; };
 		CFF9AB8F26D24E7C0070613A /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF9AB8D26D24E7C0070613A /* MainViewController.xib */; };
 		CFF9AB9526D2A8F40070613A /* RootSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9AB9326D2A8F40070613A /* RootSearchViewController.swift */; };
@@ -73,6 +78,10 @@
 		CFF44F6326DA94A4000AF18C /* WidgetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsViewController.swift; sourceTree = "<group>"; };
 		CFF44F6426DA94A4000AF18C /* WidgetsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetsViewController.xib; sourceTree = "<group>"; };
 		CFF44F6726DE4F76000AF18C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CFF44F6A26DE780E000AF18C /* GoogleDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveService.swift; sourceTree = "<group>"; };
+		CFF44F6F26DE8924000AF18C /* GoogleDriveSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveSearchViewController.swift; sourceTree = "<group>"; };
+		CFF44F7026DE8924000AF18C /* GoogleDriveSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoogleDriveSearchViewController.xib; sourceTree = "<group>"; };
+		CFF44F7326DE898B000AF18C /* GoogleDriveSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveSearch.swift; sourceTree = "<group>"; };
 		CFF9AB8C26D24E7C0070613A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CFF9AB8D26D24E7C0070613A /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CFF9AB9326D2A8F40070613A /* RootSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSearchViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF44F6E26DE79B5000AF18C /* Moya in Frameworks */,
 				CF6F367026C523C300FFE283 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +138,7 @@
 		CF6DD33426B0684000721F2A /* Palette */ = {
 			isa = PBXGroup;
 			children = (
+				CFF44F6926DE77E8000AF18C /* GoogleDrive */,
 				CFF44F5D26D3945D000AF18C /* ResultItem */,
 				CFF9AB9226D2A8BA0070613A /* RootSearch */,
 				CFF44F6226DA948B000AF18C /* Widgets */,
@@ -137,10 +148,10 @@
 				CF8306FF26C0FBAB00E5A8A5 /* MainPanel.swift */,
 				CF6F366C26C3EA9A00FFE283 /* MainPanelController.swift */,
 				CFF9AB8C26D24E7C0070613A /* MainViewController.swift */,
+				CFF9AB8D26D24E7C0070613A /* MainViewController.xib */,
 				CFCEC24426B458150009F5ED /* QuerySanitiser.swift */,
 				CFF44F6026D3C6E3000AF18C /* SceneViewController.swift */,
 				CF6DD33926B0684200721F2A /* Assets.xcassets */,
-				CFF9AB8D26D24E7C0070613A /* MainViewController.xib */,
 				CF6DD33F26B0684200721F2A /* Palette.entitlements */,
 				CF6DD33E26B0684200721F2A /* Info.plist */,
 				CFF44F6726DE4F76000AF18C /* main.swift */,
@@ -185,6 +196,17 @@
 			path = Widgets;
 			sourceTree = "<group>";
 		};
+		CFF44F6926DE77E8000AF18C /* GoogleDrive */ = {
+			isa = PBXGroup;
+			children = (
+				CFF44F6F26DE8924000AF18C /* GoogleDriveSearchViewController.swift */,
+				CFF44F7026DE8924000AF18C /* GoogleDriveSearchViewController.xib */,
+				CFF44F6A26DE780E000AF18C /* GoogleDriveService.swift */,
+				CFF44F7326DE898B000AF18C /* GoogleDriveSearch.swift */,
+			);
+			path = GoogleDrive;
+			sourceTree = "<group>";
+		};
 		CFF9AB9226D2A8BA0070613A /* RootSearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +235,7 @@
 			name = Palette;
 			packageProductDependencies = (
 				CF6F366F26C523C300FFE283 /* KeyboardShortcuts */,
+				CFF44F6D26DE79B5000AF18C /* Moya */,
 			);
 			productName = Palette;
 			productReference = CF6DD33226B0684000721F2A /* Palette.app */;
@@ -287,6 +310,7 @@
 			mainGroup = CF6DD32926B0684000721F2A;
 			packageReferences = (
 				CF6F366E26C523C300FFE283 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+				CFF44F6C26DE79B5000AF18C /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = CF6DD33326B0684000721F2A /* Products */;
 			projectDirPath = "";
@@ -305,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFF44F6626DA94A4000AF18C /* WidgetsViewController.xib in Resources */,
+				CFF44F7226DE8924000AF18C /* GoogleDriveSearchViewController.xib in Resources */,
 				CFF9AB9626D2A8F40070613A /* RootSearchViewController.xib in Resources */,
 				CFF9AB8F26D24E7C0070613A /* MainViewController.xib in Resources */,
 				CF6DD33A26B0684200721F2A /* Assets.xcassets in Resources */,
@@ -344,7 +369,10 @@
 				CFCEC24526B458150009F5ED /* QuerySanitiser.swift in Sources */,
 				CF83070026C0FBAB00E5A8A5 /* MainPanel.swift in Sources */,
 				CFF9AB9526D2A8F40070613A /* RootSearchViewController.swift in Sources */,
+				CFF44F6B26DE780E000AF18C /* GoogleDriveService.swift in Sources */,
 				CF6F367226C5240700FFE283 /* Constants.swift in Sources */,
+				CFF44F7126DE8924000AF18C /* GoogleDriveSearchViewController.swift in Sources */,
+				CFF44F7426DE898B000AF18C /* GoogleDriveSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +693,14 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		CFF44F6C26DE79B5000AF18C /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -672,6 +708,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF6F366E26C523C300FFE283 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
+		};
+		CFF44F6D26DE79B5000AF18C /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFF44F6C26DE79B5000AF18C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

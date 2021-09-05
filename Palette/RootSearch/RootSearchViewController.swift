@@ -19,6 +19,10 @@ class RootSearchViewController: NSViewController {
 }
 
 extension RootSearchViewController: SceneViewController {
+    func focusNextItem() {}
+    
+    func focusPreviousItem() {}
+    
     
     func queryDidUpdate(to newQueryString: String) {
         localAppSearch.updateQuery(to: newQueryString)
